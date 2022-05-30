@@ -1,0 +1,13 @@
+<h1>Turbo Chat</h1>
+
+<% if current_user %>
+  <%= link_to "Start Chatting", rooms_path %>
+  <br />
+  User <%= current_user.email %> is logged in
+  <br />
+  <br />
+  <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
+<% else %>
+  <%= link_to "Sign Up", new_user_registration_path %>
+  <%= link_to "Login", new_user_session_path %>
+<% end %>
