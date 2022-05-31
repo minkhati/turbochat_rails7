@@ -10,11 +10,11 @@
     
     <h4>Rooms</h4>
     
+    <%= render "layouts/new_room_form" %>
     <%= turbo_stream_from "rooms" %>
     <div id="rooms">
       <%= render @rooms %>
     </div>
-    <%= render "layouts/new_room_form" %>
   </div>
   <div id="room_container" class="col-md-8 col-sm-8 bg-dark text-light">
     <% if @single_room %>
@@ -23,7 +23,7 @@
         
         <%= turbo_stream_from @single_room %>
         
-        <div id="messages">
+        <div id="messages" data-controller="scroll">
           <%= render @messages %>
         </div>
         <%= render "layouts/new_message_form" %>
