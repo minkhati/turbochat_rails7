@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'users/show'
+  # get 'users/show'
   
   root 'pages#home'
   resources :rooms do
@@ -7,12 +7,16 @@ Rails.application.routes.draw do
   end
   
   
-  devise_for :users
+  devise_for :users, controllers: {
+    sessions: 'users/sessions',
+    registrations: 'users/registrations'
+  }
+  
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
-  devise_scope :user do
-    get 'users', to: 'devise/sessions#new'
-  end
+  # devise_scope :user do
+  #   get 'users', to: 'devise/sessions#new'
+  # end
   
   get "user/:id", to: "users#show", as: 'user'  
   # Defines the root path route ("/")

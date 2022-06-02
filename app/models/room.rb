@@ -19,6 +19,11 @@ class Room < ApplicationRecord
     single_room
   end
   
+  def participant?(user, room)
+    room.participants.where(user: user).exists?
+    Participant.where(user_id: user.id, room_id: room.id).exists?
+  end
+  
   private
   
   def broadcast_if_public

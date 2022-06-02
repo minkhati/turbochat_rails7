@@ -3,6 +3,11 @@ require "active_support/core_ext/integer/time"
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
   config.hosts << "417d9299c8f84bd3ad466cc3ef2bc9bd.vfs.cloud9.us-east-1.amazonaws.com"
+  
+  config.action_controller.default_url_options = {
+    host: "417d9299c8f84bd3ad466cc3ef2bc9bd.vfs.cloud9.us-east-1.amazonaws.com",
+    port: 8080
+  }
 
   # In the development environment your application's code is reloaded any time
   # it changes. This slows down response time but is perfect for development
